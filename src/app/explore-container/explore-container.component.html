@@ -1,0 +1,35 @@
+<div id="container">
+  <strong>{{ name }}</strong>
+  <div class="row">
+    <div class="col-12">
+      <form [formGroup]="uploadForm">
+        <div class="justify-content-center row">
+          <div size-sm="10" class="justify-content-center col-12">
+            <span>JSON file</span>
+          </div>
+        </div>
+        <div class="justify-content-center row">
+          <div class="justify-content-center col">
+            <label>Upload</label>
+            <input type="file"
+              formControlName="uploadFile"
+              id="file-in"
+              placeholder="excel file"
+              accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel, .csv"
+              (change)="upload($event)"
+              required
+              >
+            </input>
+          <button type="button" class="btn btn-primary" id="upload-button">Upload</button>
+          <div trigger="upload-button" message="Uploading..." duration="2500"></div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-12" [class.is-invalid]="uploadStatus.error">
+                <p class="justify-content-center" error-text="" [color]="uploadStatusColor()">{{ uploadStatus.msg }}</p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

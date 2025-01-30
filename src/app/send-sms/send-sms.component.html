@@ -1,0 +1,23 @@
+<ion-grid>
+  <ion-row class="ion-justify-content-center">
+    <ion-col size-sm="10" class="ion-justify-content-center" *ngIf="!uploadStatus?.error && uploadStatus?.status;else fixUpload">
+      <ion-list>
+        <app-sms-template *ngFor="let row of data ; index as i"
+        [index]="i"
+        [row]="row"
+        [(sent)]="sent"
+        [(failed)]="failed">
+        </app-sms-template>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+<ng-template #fixUpload>
+  <ion-col>
+    <ion-list>
+    <ion-item>
+      <ion-text color="warning"><ion-icon name="alert-outline"></ion-icon> Upload File Again</ion-text>
+    </ion-item>
+  </ion-list>
+</ion-col>
+</ng-template>

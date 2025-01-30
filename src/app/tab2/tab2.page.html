@@ -1,0 +1,15 @@
+<ion-header [translucent]="true">
+  <app-toolbar [pageTitle]="pageTitle"></app-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large" *ngIf="uploaded;else uploadErrorSection">Send SMSs</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <app-send-sms [uploaded]="uploaded"></app-send-sms>
+</ion-content>
+<ng-template #uploadErrorSection>
+  <ion-text><ion-icon name="alert-outline"></ion-icon>Error</ion-text>
+</ng-template>>

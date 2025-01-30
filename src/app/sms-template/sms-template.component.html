@@ -1,0 +1,18 @@
+<ion-item [class.ion-hide]="hideRow(row)">
+  <ion-card>
+    <ion-grid>
+      <ion-row >
+        <ion-col size="auto" id="sms-send-{{ index }}">
+          {{ index + 1 }}
+        </ion-col>
+        <ion-col size="9">
+          <div id="sms-message">Hello {{ row.insured?.split(' ')[0] | titlecase }}. I trust you are well. Insurance for {{ row.registration ?? row.policy_number }} <span *ngIf="row.sum_insured !== '0';else expire">expires</span> on {{ row.policy_expiry_date }}. <span *ngIf="row.sum_insured !== '0'">&#64; a value of Ksh {{ row.sum_insured }}</span> Premiums payable <span *ngIf="row.sum_insured !== '0'">with excess protector own damage </span>is Ksh {{ row.premium }}. Paybill number is {{ paybill }} account number is the car registration then you forward the mpesa message to my number {{ agentNumber }}.</div>
+        </ion-col>
+        <ion-col size-sm="auto">
+          <ion-button name="send" (click)="sendSms(row.mobile_no)"><ion-icon name="send"></ion-icon></ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-item>
+<ng-template #expire>will be due for renewal</ng-template>

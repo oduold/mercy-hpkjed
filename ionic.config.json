@@ -1,0 +1,8 @@
+{
+  "name": "mercy",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "a0af4884"
+}
